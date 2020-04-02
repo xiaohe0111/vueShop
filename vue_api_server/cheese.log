@@ -380,3 +380,31 @@
 [2020-04-02T09:23:10.675] [DEBUG] cheese - null
 [2020-04-02T09:23:10.676] [DEBUG] cheese - null
 >>>>>>> 完成登录显示功能
+[2020-04-02T16:45:40.843] [DEBUG] cheese - login => username:admin,password:123456
+[2020-04-02T16:45:40.849] [DEBUG] cheese - admin
+[2020-04-02T16:45:40.882] [DEBUG] cheese - null
+[2020-04-02T16:45:40.883] [DEBUG] cheese - null
+[2020-04-02T16:52:49.401] [DEBUG] cheese - login => username:asdfdfdf,password:123456
+[2020-04-02T16:52:49.401] [DEBUG] cheese - asdfdfdf
+[2020-04-02T16:52:49.414] [DEBUG] cheese - null
+[2020-04-02T16:52:49.415] [DEBUG] cheese - null
+[2020-04-02T17:12:13.459] [DEBUG] cheese - login => username:admin,password:123456
+[2020-04-02T17:12:13.459] [DEBUG] cheese - admin
+[2020-04-02T17:12:13.471] [DEBUG] cheese - null
+[2020-04-02T17:12:13.471] [DEBUG] cheese - null
+[2020-04-02T17:50:19.167] [DEBUG] cheese - login => username:admin,password:123456
+[2020-04-02T17:50:19.167] [DEBUG] cheese - admin
+[2020-04-02T17:50:19.177] [DEBUG] cheese - null
+[2020-04-02T17:50:19.177] [DEBUG] cheese - null
+[2020-04-02T17:57:48.874] [DEBUG] cheese - login => username:admin,password:123456
+[2020-04-02T17:57:48.874] [DEBUG] cheese - admin
+[2020-04-02T17:57:48.886] [DEBUG] cheese - null
+[2020-04-02T17:57:48.886] [DEBUG] cheese - null
+[2020-04-02T17:58:37.877] [DEBUG] cheese - login => username:sdfdf,password:1233434
+[2020-04-02T17:58:37.877] [DEBUG] cheese - sdfdf
+[2020-04-02T17:58:37.884] [DEBUG] cheese - null
+[2020-04-02T17:58:37.884] [DEBUG] cheese - null
+[2020-04-02T17:58:43.670] [DEBUG] cheese - login => username:admin,password:123456
+[2020-04-02T17:58:43.671] [DEBUG] cheese - admin
+[2020-04-02T17:58:43.675] [DEBUG] cheese - null
+[2020-04-02T17:58:43.675] [DEBUG] cheese - null
