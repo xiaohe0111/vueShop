@@ -12,6 +12,7 @@ module.exports = {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     quotes: [1, "single"],
-    semi: ["error", "always"]
+    semi: ["error", "always"],
+    camelcase: ["error", { allow: ["aa_bb"] }]
   }
 };
