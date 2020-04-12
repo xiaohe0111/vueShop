@@ -1,4 +1,4 @@
-import Vue from "vue";
+import Vue from 'vue';
 import {
   Button,
   Form,
@@ -37,7 +37,7 @@ import {
   Checkbox,
   CheckboxGroup,
   Upload
-} from "element-ui";
+} from 'element-ui';
 
 Vue.use(Button);
 Vue.use(Form);

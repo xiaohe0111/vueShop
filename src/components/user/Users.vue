@@ -150,7 +150,7 @@ export default {
         // 合法的邮箱
         return cb();
       }
-      cb(new Error("请输入合法的邮箱"));
+      cb(new Error('请输入合法的邮箱'));
     };
     // 验证手机号的规则
     var checkMobile = (rule, value, cb) => {
@@ -160,13 +160,13 @@ export default {
       if (regMobile.test(value)) {
         return cb();
       }
-      cb(new Error("请输入合法的手机号"));
+      cb(new Error('请输入合法的手机号'));
     };
 
     return {
       // 获取用户列表的参数对象
       queryInfo: {
-        query: "",
+        query: '',
         pagenum: 1,
         pagesize: 2
       },
@@ -175,38 +175,38 @@ export default {
       dialogVisible: false,
       // 表单的数据
       addForm: {
-        username: "",
-        password: "",
-        email: "",
-        mobile: ""
+        username: '',
+        password: '',
+        email: '',
+        mobile: ''
       },
       // 表单的验证规则
       rules: {
         username: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
+          { required: true, message: '请输入用户名', trigger: 'blur' },
           {
             min: 3,
             max: 10,
-            message: "用户名的长度在3~10个字符之间",
-            trigger: "blur"
+            message: '用户名的长度在3~10个字符之间',
+            trigger: 'blur'
           }
         ],
         password: [
-          { required: true, message: "请输入密码", trigger: "blur" },
+          { required: true, message: '请输入密码', trigger: 'blur' },
           {
             min: 6,
             max: 15,
-            message: "用户名的长度在6~15个字符之间",
-            trigger: "blur"
+            message: '用户名的长度在6~15个字符之间',
+            trigger: 'blur'
           }
         ],
         email: [
-          { required: true, message: "请输入邮箱", trigger: "blur" },
-          { validator: checkEmail, trigger: "blur" }
+          { required: true, message: '请输入邮箱', trigger: 'blur' },
+          { validator: checkEmail, trigger: 'blur' }
         ],
         mobile: [
-          { required: true, message: "请输入手机", trigger: "blur" },
-          { validator: checkMobile, trigger: "blur" }
+          { required: true, message: '请输入手机', trigger: 'blur' },
+          { validator: checkMobile, trigger: 'blur' }
         ]
       },
       // 控制修改用户对话框的显示与隐藏
@@ -216,12 +216,12 @@ export default {
       // 修改表单的验证规则对象
       editFormRules: {
         email: [
-          { required: true, message: "请输入邮箱", trigger: "blur" },
-          { validator: checkEmail, trigger: "blur" }
+          { required: true, message: '请输入邮箱', trigger: 'blur' },
+          { validator: checkEmail, trigger: 'blur' }
         ],
         mobile: [
-          { required: true, message: "请输入手机", trigger: "blur" },
-          { validator: checkMobile, trigger: "blur" }
+          { required: true, message: '请输入手机', trigger: 'blur' },
+          { validator: checkMobile, trigger: 'blur' }
         ]
       },
       // 控制分配角色对话框的显示与隐藏
@@ -231,7 +231,7 @@ export default {
       // 定义所以角色的数据列表
       rolesList: [],
       // 已选中的角色ID值
-      selectedRoleId: ""
+      selectedRoleId: ''
     };
   },
   created() {
@@ -239,11 +239,11 @@ export default {
   },
   methods: {
     async getUserList() {
-      const { data: res } = await this.$http.get("users", {
+      const { data: res } = await this.$http.get('users', {
         params: this.queryInfo
       });
       if (res.meta.status !== 200) {
-        return this.$message.error("获取用户列表失败");
+        return this.$message.error('获取用户列表失败');
       }
       this.userlist = res.data.users;
       this.total = res.data.total;
@@ -269,9 +269,9 @@ export default {
       );
       if (res.meta.status !== 200) {
         userinfo.mg_state = !userinfo.mg_state;
-        return this.$message.error("更新用户状态失败");
+        return this.$message.error('更新用户状态失败');
       }
-      this.$message.success("更新用户状态成功");
+      this.$message.success('更新用户状态成功');
     },
     // 监听添加用户对话框的关闭事件
     addDialogClosed() {
@@ -283,12 +283,12 @@ export default {
         console.log(valid);
         if (!valid) return;
         // 现在就可以发起添加用户的网路请求
-        const { data: res } = await this.$http.post("users", this.addForm);
+        const { data: res } = await this.$http.post('users', this.addForm);
         if (res.meta.status !== 201) {
-          this.$message.error("添加用户失败");
+          this.$message.error('添加用户失败');
         }
         // 反之就是添加成功
-        this.$message.success("添加用户成功");
+        this.$message.success('添加用户成功');
         // 然后隐藏添加用户的对话框
         this.dialogVisible = false;
         // 最后刷新页面重新获取用户列表数据
@@ -298,9 +298,9 @@ export default {
     // 编辑用户
     async showEditDialog(id) {
       console.log(id);
-      const { data: res } = await this.$http.get("users/" + id);
+      const { data: res } = await this.$http.get('users/' + id);
       if (res.meta.status !== 200) {
-        return this.$message.error("查询用户信息失败");
+        return this.$message.error('查询用户信息失败');
       }
       this.editForm = res.data;
       this.editDialogVisible = true;
@@ -315,7 +315,7 @@ export default {
         if (!valid) return;
         // 然后再发起修改信息的数据请求
         const { data: res } = await this.$http.put(
-          "users/" + this.editForm.id,
+          'users/' + this.editForm.id,
           {
             email: this.editForm.email,
             mobile: this.editForm.mobile
@@ -323,12 +323,12 @@ export default {
         );
         // 然后进行判断
         if (res.meta.status !== 200) {
-          return this.$message.error("更新用信息失败");
+          return this.$message.error('更新用信息失败');
         }
         // 最后要关闭对话框--刷新数据列表--提示修改成功
         this.editDialogVisible = false;
         this.getUserList();
-        this.$message.success("更新用户信息成功!");
+        this.$message.success('更新用户信息成功!');
       });
     },
     // 根据ID删除对应的数据
@@ -336,36 +336,36 @@ export default {
       console.log(id);
       // 询问是否删除
       const confirmResult = await this.$confirm(
-        "此操作将永久删除该用户, 是否继续?",
-        "提示",
+        '此操作将永久删除该用户, 是否继续?',
+        '提示',
         {
-          confirmButtonText: "确定",
-          cancelButtonText: "取消",
-          type: "warning"
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
         }
       ).catch(err => err);
       // 那么如果用户确认删除,就返回字符串confirm
       // 那么如果用户取消删除,就返回字符串cancle
       // console.log(confirmResult);
-      if (confirmResult !== "confirm") {
-        return this.$message.info("已取消删除");
+      if (confirmResult !== 'confirm') {
+        return this.$message.info('已取消删除');
       }
-      const { data: res } = await this.$http.delete("users/" + id);
+      const { data: res } = await this.$http.delete('users/' + id);
 
       if (res.meta.status !== 200) {
-        return this.$message.error("删除用户失败！");
+        return this.$message.error('删除用户失败！');
       }
 
-      this.$message.success("删除用户成功！");
+      this.$message.success('删除用户成功！');
       this.getUserList();
     },
     // 分配角色的相关配置信息
     async setRole(userInfo) {
       this.userInfo = userInfo;
       // 在展示对话框之前显示所以的内容
-      const { data: res } = await this.$http.get("roles");
+      const { data: res } = await this.$http.get('roles');
       if (res.meta.status !== 200) {
-        return this.$message.error("获取角色列表失败");
+        return this.$message.error('获取角色列表失败');
       }
       this.rolesList = res.data;
       this.setRoleDialogVisible = true;
@@ -374,7 +374,7 @@ export default {
     async saveRoleInfo() {
       // 先进行判断
       if (!this.selectedRoleId) {
-        return this.$message.error("请选择要分配的角色");
+        return this.$message.error('请选择要分配的角色');
       }
       const { data: res } = await this.$http.put(
         `users/${this.userInfo.id}/role`,
@@ -383,16 +383,16 @@ export default {
         }
       );
       if (res.meta.status !== 200) {
-        return this.$message.error("更新角色失败！");
+        return this.$message.error('更新角色失败！');
       }
 
-      this.$message.success("更新角色成功！");
+      this.$message.success('更新角色成功！');
       this.getUserList();
       this.setRoleDialogVisible = false;
     },
     // 监听分配角色对话框的关闭事件
     setRoleDialogClosed() {
-      this.selectedRoleId = "";
+      this.selectedRoleId = '';
       this.userInfo = {};
     }
   }

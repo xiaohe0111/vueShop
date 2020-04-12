@@ -65,32 +65,32 @@ export default {
       // 左侧菜单数据
       menulist: [],
       iconsObj: {
-        125: "iconfont icon-user",
-        103: "iconfont icon-tijikongjian",
-        101: "iconfont icon-shangpin",
-        102: "iconfont icon-danju",
-        145: "iconfont icon-baobiao"
+        125: 'iconfont icon-user',
+        103: 'iconfont icon-tijikongjian',
+        101: 'iconfont icon-shangpin',
+        102: 'iconfont icon-danju',
+        145: 'iconfont icon-baobiao'
       },
       // 是否折叠
       isCollapse: false,
       // 被折叠的连接地址
-      activePath: ""
+      activePath: ''
     };
   },
   created() {
     this.getNenuList();
-    this.activePath = window.sessionStorage.getItem("activePath");
+    this.activePath = window.sessionStorage.getItem('activePath');
   },
   methods: {
     loginout() {
       // 清除token的数据
       window.sessionStorage.clear();
       // 然后将页面重新跳转到登录页面
-      this.$router.push("/login");
+      this.$router.push('/login');
     },
     // 获取所有的菜单
     async getNenuList() {
-      const { data: res } = await this.$http.get("menus");
+      const { data: res } = await this.$http.get('menus');
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg);
       // 如果状态码不等于200
       this.menulist = res.data;
@@ -102,7 +102,7 @@ export default {
     },
     // 保存链接的激活状态
     saveNavState(activePath) {
-      window.sessionStorage.setItem("activePath", activePath);
+      window.sessionStorage.setItem('activePath', activePath);
       this.activePath = activePath;
     }
   }
